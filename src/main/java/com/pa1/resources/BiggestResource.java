@@ -23,12 +23,8 @@ public class BiggestResource {
     
     static final Logger logger = LoggerFactory.getLogger(BiggestResource.class);
     
-    //@Inject
-    //StringProcessor processor;
-    
-    StringProcessor processor = new BiggestWordProcessor();
-    
-    static final Comparator<BiggestResult> comparator = new BiggestResultComparator(true);
+    @Inject
+    StringProcessor processor;
     
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
@@ -51,7 +47,7 @@ public class BiggestResource {
             results.add(br);
         }
         
-        Collections.sort(results, comparator);  //stable sort
+        Collections.sort(results, new BiggestResultComparator(true));  //stable sort
         
         BiggestResponse response = new BiggestResponse();
         response.setResult(results);

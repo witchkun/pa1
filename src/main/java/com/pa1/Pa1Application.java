@@ -9,6 +9,9 @@ public class Pa1Application extends Application<Pa1Configuration> {
 
     @Override
     public void run(Pa1Configuration c, Environment e) throws Exception {
+        
+        e.jersey().register(new DependencyBinder());
+        
         e.jersey().register(new BiggestResource());
         e.healthChecks().register("biggest", new BiggestHealth());
     }
