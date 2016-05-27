@@ -4,7 +4,6 @@ import com.pa1.beans.BiggestResultComparator;
 import com.pa1.beans.BiggestWordProcessor;
 import com.pa1.beans.StringProcessor;
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
@@ -25,6 +24,8 @@ public class BiggestResource {
     static final Logger logger = LoggerFactory.getLogger(BiggestResource.class);
     
     //@Inject
+    //StringProcessor processor;
+    
     StringProcessor processor = new BiggestWordProcessor();
     
     static final Comparator<BiggestResult> comparator = new BiggestResultComparator(true);

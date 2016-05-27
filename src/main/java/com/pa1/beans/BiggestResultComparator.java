@@ -6,7 +6,7 @@ import java.util.Comparator;
 
 public class BiggestResultComparator implements Comparator<BiggestResult> {
     
-    private boolean descending;
+    private final boolean descending;
 
     public BiggestResultComparator(boolean desc) {
         this.descending = desc;
@@ -16,7 +16,7 @@ public class BiggestResultComparator implements Comparator<BiggestResult> {
         BiggestWord w1 = o1.getBiggestWord();
         BiggestWord w2 = o2.getBiggestWord();
         
-        int res = 0;
+        int res;
         if(w1.getLength() > w2.getLength()) {
             res = 1;
         }
